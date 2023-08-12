@@ -3,11 +3,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
-CREATE TABLE `newsapplication` (
-  `test` int(5) NOT NULL,
-  `a` int(5) NOT NULL,
-  `b` int(5) NOT NULL,
-  `c` int(5) NOT NULL,
+CREATE TABLE `newsuser` (
+  `uuid` VARCHAR(32) NOT NULL,
+  `email` TEXT(32) NOT NULL,
+  `password` TEXT(32) NOT NULL,
+  `username` TEXT(32) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
