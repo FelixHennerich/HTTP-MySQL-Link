@@ -78,8 +78,14 @@ if ($data) {
 	}
 
 
+	
 
-
+	
+	/**
+	 * 
+	 * Insert code to database
+	 * 
+	 */
 
 	$sql = "INSERT INTO $table(uuid, email, password, username, birthday, signup, role) VALUES (\"$uuid\",\"$email\",\"$password\",\"$username\",\"$birthday\",\"$signup\",\"$role\")";
 	$result = $connect->query($sql);
