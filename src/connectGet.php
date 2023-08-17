@@ -18,18 +18,45 @@ if(!$connect){
 }
 echo "Connection Success!<br><br>";
 
-$table = $_POST['table'];
-$maincolumn = $_POST['maincolumn'];
-$mainvalue = $_POST['mainvalue'];
-$getcolumn = $_POST['getcolumn'];
+$value = $_GET['value'];
+$uuid = $_GET['uuid'];
+$authCodeByUser = $_GET['authcodetocheck']; //authcode that must be delivered in the post statement
 
-/*
-$table = "newsapplication";
-$column = "test";
-$value = "a";
-*/
 
-echo mysqli_query($connect,"SELECT $getcolumn FROM $table WHERE $maincolumn = $mainvalue");
+
+
+
+ /**
+  * 
+  * Verify Authcode
+  * 
+  */
+
+ $sql = "SELECT authcode FROM auth WHERE available = true";
+ $result = $connect->query($sql);
+
+ if ($result->num_rows > 0) {
+     while($row = $result->fetch_assoc()) {
+         $authcode = $row["authcode"];
+         if($authCodeByUser != $authcode){ // authcode of user equals the "real" authcode
+             echo "Authentication failed";
+             exit(10);
+         }
+     }
+
+ } else {
+     echo "No Authcode found";
+     exit(11);
+ }
+
+
+ /**
+  * 
+  * MySQL request
+  *
+  */
+
+echo mysqli_query($connect,"SELECT $value FROM newsuser WHERE uuid = \"$uuid\"");
 
 echo "Insertion Success!<br>";
 
