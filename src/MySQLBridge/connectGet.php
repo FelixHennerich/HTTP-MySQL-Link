@@ -36,19 +36,20 @@ $authCodeByUser = $_GET['authcodetocheck']; //authcode that must be delivered in
  $result = $connect->query($sql);
 
  if ($result->num_rows > 0) {
-     while($row = $result->fetch_assoc()) {
-         $authcode = $row["authcode"];
-         if($authCodeByUser != $authcode){ // authcode of user equals the "real" authcode
-             echo "Authentication failed";
-             exit(10);
-         }
-     }
+    while($row = $result->fetch_assoc()) {
+        $authcode = $row["authcode"];
+        if($authCodeByUser == $authcode){ // authcode of user equals the "real" authcode
+           $booleanvalue = true;
+        }
+    }
 
- } else {
-     echo "No Authcode found";
-     exit(11);
- }
-
+} else {
+    echo "No Authcode found";
+    exit(11);
+}
+if($booleanvalue != true){
+   exit(10);
+}
 
  /**
   * 
