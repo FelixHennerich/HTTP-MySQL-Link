@@ -25,12 +25,19 @@ $sql = "SELECT authcode FROM auth WHERE available = true";
 $result = $connect->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
-      echo "Authcode: " . $row["authcode"]."<br><br>";
+        $authcode = $row["authcode"];
+        if($authCodeByUser == $authcode){ // authcode of user equals the "real" authcode
+           $booleanvalue = true;
+        }
     }
+
 } else {
-    echo "0 results";
+    echo "No Authcode found";
+    exit(11);
+}
+if($booleanvalue != true){
+   exit(10);
 }
 
 echo "Get Success!<br>";

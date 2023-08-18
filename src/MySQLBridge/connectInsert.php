@@ -66,15 +66,17 @@ if ($data) {
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$authcode = $row["authcode"];
-			if($authCodeByUser != $authcode){ // authcode of user equals the "real" authcode
-				echo "Authentication failed";
-				exit();
+			if($authCodeByUser == $authcode){ // authcode of user equals the "real" authcode
+			   $booleanvalue = true;
 			}
 		}
-
+   
 	} else {
 		echo "No Authcode found";
-		exit();
+		exit(11);
+	}
+	if($booleanvalue != true){
+	   exit(10);
 	}
 
 
