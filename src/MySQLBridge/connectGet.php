@@ -57,10 +57,18 @@ if($booleanvalue != true){
   *
   */
 
-echo mysqli_query($connect,"SELECT $value FROM newsuser WHERE uuid = \"$uuid\"");
+$sql = "SELECT $value FROM newsuser WHERE uuid = \"$uuid\"";
+$result = $connect->query($sql);
 
-echo "Insertion Success!<br>";
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $valueabcd = $row[$value];
+        echo "ThisIsYourValue#".$valueabcd."#";
+    }
 
+} else {
+    exit(11);
+}
 ?>
 </body>
 </html>
