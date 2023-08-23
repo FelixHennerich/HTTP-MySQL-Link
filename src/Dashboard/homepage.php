@@ -9,7 +9,7 @@
 <body>
     <?php
     if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-        echo "<h1>Willkommen auf der geschützten Seite!</h1>";
+        echo "<h1>News-Application Dashboard!</h1>";
 
         $buttonText = "Log out";
         echo "<form method='post' action=''>";
