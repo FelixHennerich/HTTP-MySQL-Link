@@ -19,7 +19,6 @@ if(!$connect){
 echo "Connection Success!<br><br>";
 
 $value = $_GET['value'];
-$uuid = $_GET['uuid'];
 $authCodeByUser = $_GET['authcodetocheck']; //authcode that must be delivered in the post statement
 
 
@@ -57,7 +56,14 @@ if($booleanvalue != true){
   *
   */
 
-$sql = "SELECT $value FROM newsuser WHERE uuid = \"$uuid\"";
+  if($_GET['uuid'] != null){
+    $uuid = $_GET['uuid'];
+    $sql = "SELECT $value FROM newsuser WHERE uuid = \"$uuid\"";
+  }else {
+    $email = $_GET['email'];
+    $sql = "SELECT $value FROM newsuser WHERE email = \"$email\"";
+  }
+
 $result = $connect->query($sql);
 
 if ($result->num_rows > 0) {
