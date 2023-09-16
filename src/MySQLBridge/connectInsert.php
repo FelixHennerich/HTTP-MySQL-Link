@@ -89,7 +89,7 @@ if ($data) {
 	 * 
 	 */
 
-	$sql = "INSERT INTO $table(uuid, email, password, username, birthday, signup, role, follower, following) VALUES (\"$uuid\",\"$email\",\"$password\",\"$username\",\"$birthday\",\"$signup\",\"$role\",0,\"\")";
+	$sql = "INSERT INTO $table(uuid, email, password, username, birthday, signup, role, follower, following) VALUES (\"$uuid\",\"$email\",\"$password\",\"$username\",\"$birthday\",\"$signup\",\"$role\",0,0)";
 	$result = $connect->query($sql);
 
 	echo "Insertion Success!<br>";
