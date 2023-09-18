@@ -3,9 +3,9 @@
 
 <?php
 
-$dbname = 'id20158736_weatheresp';
-$dbuser = 'id20158736_admin';  
-$dbpass = 'WnFnE6Pa9LZ6LF!'; 
+$dbname = 'TrendWave';
+$dbuser = 'trendwave';  
+$dbpass = 'ybnykF4ACMnSpU'; 
 $dbhost = 'localhost'; 
 
 
