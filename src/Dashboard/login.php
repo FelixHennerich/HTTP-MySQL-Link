@@ -12,10 +12,10 @@ if(isset($_GET['email']) && isset($_GET['password'])) {
      * MySQL CONNECTION
      * 
      */
-    $dbname = 'id20158736_weatheresp';
-    $dbuser = 'id20158736_admin';  
-    $dbpass = 'WnFnE6Pa9LZ6LF!'; 
-    $dbhost = 'localhost'; 
+    $dbname = 'TrendWave';
+$dbuser = 'trendwave';  
+$dbpass = 'ybnykF4ACMnSpU'; 
+$dbhost = 'localhost'; 
 
 
 

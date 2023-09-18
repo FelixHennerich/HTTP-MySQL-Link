@@ -4,10 +4,10 @@
  * MySQL connection
  * 
  */
-$servername = "localhost";
-$username = "id20158736_admin";
-$password = "WnFnE6Pa9LZ6LF!";
-$dbname = "id20158736_weatheresp"; 
+$dbname = 'TrendWave';
+$dbuser = 'trendwave';  
+$dbpass = 'ybnykF4ACMnSpU'; 
+$dbhost = 'localhost'; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
